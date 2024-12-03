@@ -20,6 +20,24 @@ pub fn solve(input: &str) -> String {
     sum.to_string()
 }
 
+pub fn solve_p2(input: &str) -> String {
+    let lines = input.lines().collect::<Vec<_>>();
+    let mut right_col: Vec<u32> = Vec::new();
+    let mut left_col: Vec<u32> = Vec::new();
+    for line in lines {
+        let (left, right) = line.split_once("   ").unwrap();
+        right_col.push(right.parse().unwrap());
+        left_col.push(left.parse().unwrap());
+    }
+    let mut sum = 0;
+    for i in left_col {
+        let count = right_col.iter().filter(|&&x| x == i).count();
+
+        sum += i * count as u32;
+    }
+    sum.to_string()
+}
+
 pub fn quick_sort(arr: Vec<u32>) -> Vec<u32> {
     if arr.len() <= 1 {
         return arr;

@@ -15,43 +15,171 @@ use wl_clipboard_rs::copy::{MimeType, Options, Source};
 struct Args {
     #[arg()]
     day: u8,
+    #[arg(default_value = "1")]
+    part: u8,
 }
 
 #[tokio::main]
 async fn main() {
     let args = Args::parse();
+    let data = get_data(args.day).await.unwrap();
     let res = match args.day {
-        1 => solutions::day1::solve(get_data(args.day).await.unwrap().as_str()),
-        2 => solutions::day2::solve(get_data(args.day).await.unwrap().as_str()),
-        3 => solutions::day3::solve(get_data(args.day).await.unwrap().as_str()),
-        4 => solutions::day4::solve(get_data(args.day).await.unwrap().as_str()),
-        5 => solutions::day5::solve(get_data(args.day).await.unwrap().as_str()),
-        6 => solutions::day6::solve(get_data(args.day).await.unwrap().as_str()),
-        7 => solutions::day7::solve(get_data(args.day).await.unwrap().as_str()),
-        8 => solutions::day8::solve(get_data(args.day).await.unwrap().as_str()),
-        9 => solutions::day9::solve(get_data(args.day).await.unwrap().as_str()),
-        10 => solutions::day10::solve(get_data(args.day).await.unwrap().as_str()),
-        11 => solutions::day11::solve(get_data(args.day).await.unwrap().as_str()),
-        12 => solutions::day12::solve(get_data(args.day).await.unwrap().as_str()),
-        13 => solutions::day13::solve(get_data(args.day).await.unwrap().as_str()),
-        14 => solutions::day14::solve(get_data(args.day).await.unwrap().as_str()),
-        15 => solutions::day15::solve(get_data(args.day).await.unwrap().as_str()),
-        16 => solutions::day16::solve(get_data(args.day).await.unwrap().as_str()),
-        17 => solutions::day17::solve(get_data(args.day).await.unwrap().as_str()),
-        18 => solutions::day18::solve(get_data(args.day).await.unwrap().as_str()),
-        19 => solutions::day19::solve(get_data(args.day).await.unwrap().as_str()),
-        20 => solutions::day20::solve(get_data(args.day).await.unwrap().as_str()),
-        21 => solutions::day21::solve(get_data(args.day).await.unwrap().as_str()),
-        22 => solutions::day22::solve(get_data(args.day).await.unwrap().as_str()),
-        23 => solutions::day23::solve(get_data(args.day).await.unwrap().as_str()),
-        24 => solutions::day24::solve(get_data(args.day).await.unwrap().as_str()),
-        25 => solutions::day25::solve(get_data(args.day).await.unwrap().as_str()),
-        26 => solutions::day26::solve(get_data(args.day).await.unwrap().as_str()),
-        27 => solutions::day27::solve(get_data(args.day).await.unwrap().as_str()),
-        28 => solutions::day28::solve(get_data(args.day).await.unwrap().as_str()),
-        29 => solutions::day29::solve(get_data(args.day).await.unwrap().as_str()),
-        30 => solutions::day30::solve(get_data(args.day).await.unwrap().as_str()),
-        31 => solutions::day31::solve(get_data(args.day).await.unwrap().as_str()),
+        1 => match args.part {
+            1 => solutions::day1::solve(&data),
+            2 => solutions::day1::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        2 => match args.part {
+            1 => solutions::day2::solve(&data),
+            2 => solutions::day2::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        3 => match args.part {
+            1 => solutions::day3::solve(&data),
+            2 => solutions::day3::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        4 => match args.part {
+            1 => solutions::day4::solve(&data),
+            2 => solutions::day4::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        5 => match args.part {
+            1 => solutions::day5::solve(&data),
+            2 => solutions::day5::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        6 => match args.part {
+            1 => solutions::day6::solve(&data),
+            2 => solutions::day6::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        7 => match args.part {
+            1 => solutions::day7::solve(&data),
+            2 => solutions::day7::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        8 => match args.part {
+            1 => solutions::day8::solve(&data),
+            2 => solutions::day8::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        9 => match args.part {
+            1 => solutions::day9::solve(&data),
+            2 => solutions::day9::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        10 => match args.part {
+            1 => solutions::day10::solve(&data),
+            2 => solutions::day10::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        11 => match args.part {
+            1 => solutions::day11::solve(&data),
+            2 => solutions::day11::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        12 => match args.part {
+            1 => solutions::day12::solve(&data),
+            2 => solutions::day12::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        13 => match args.part {
+            1 => solutions::day13::solve(&data),
+            2 => solutions::day13::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        14 => match args.part {
+            1 => solutions::day14::solve(&data),
+            2 => solutions::day14::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        15 => match args.part {
+            1 => solutions::day15::solve(&data),
+            2 => solutions::day15::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        16 => match args.part {
+            1 => solutions::day16::solve(&data),
+            2 => solutions::day16::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        17 => match args.part {
+            1 => solutions::day17::solve(&data),
+            2 => solutions::day17::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        18 => match args.part {
+            1 => solutions::day18::solve(&data),
+            2 => solutions::day18::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        19 => match args.part {
+            1 => solutions::day19::solve(&data),
+            2 => solutions::day19::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        20 => match args.part {
+            1 => solutions::day20::solve(&data),
+            2 => solutions::day20::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        21 => match args.part {
+            1 => solutions::day21::solve(&data),
+            2 => solutions::day21::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        22 => match args.part {
+            1 => solutions::day22::solve(&data),
+            2 => solutions::day22::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        23 => match args.part {
+            1 => solutions::day23::solve(&data),
+            2 => solutions::day23::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        24 => match args.part {
+            1 => solutions::day24::solve(&data),
+            2 => solutions::day24::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        25 => match args.part {
+            1 => solutions::day25::solve(&data),
+            2 => solutions::day25::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        26 => match args.part {
+            1 => solutions::day26::solve(&data),
+            2 => solutions::day26::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        27 => match args.part {
+            1 => solutions::day27::solve(&data),
+            2 => solutions::day27::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        28 => match args.part {
+            1 => solutions::day28::solve(&data),
+            2 => solutions::day28::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        29 => match args.part {
+            1 => solutions::day29::solve(&data),
+            2 => solutions::day29::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        30 => match args.part {
+            1 => solutions::day30::solve(&data),
+            2 => solutions::day30::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+        31 => match args.part {
+            1 => solutions::day31::solve(&data),
+            2 => solutions::day31::solve_p2(&data),
+            _ => panic!("No such part"),
+        },
+
         _ => panic!("Day not implemented"),
     };
 
